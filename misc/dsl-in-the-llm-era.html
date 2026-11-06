@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Productivity to Precision</title>
+  <style>
+    :root {
+      --text: #111;
+      --muted: #555;
+      --link: #0645ad;
+      --bg: #fff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      font-size: 18px;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .meta,
+    .muted {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .meta {
+      margin-bottom: 28px;
+    }
+
+    .top-link {
+      margin-top: 28px;
+    }
+
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <p class="muted"><a href="../index.html">← Sijie Kong</a></p>
+
+    <h1>From Productivity to Precision</h1>
+    <p class="subtitle">The Role of DSLs in the LLM Era</p>
+    <p class="meta"><em>November 2026</em></p>
+
+    <p>In the LLM era, generating code is no longer the hard part. The hard part is verifying it: checking whether the model implemented exactly what the user wanted. I think this shift changes what domain-specific languages (DSLs) and abstractions are for.</p>
+
+    <p>Traditionally, DSLs let people express solutions in the terms of their domain. SQL describes queries, regular expressions describe patterns, and HTML describes layout. Each one trades generality for clarity, safety, and productivity.</p>
+
+    <p>In the LLM era, I think that role has changed. Productivity is no longer the main concern, because an LLM can write the boilerplate for us. Safety still matters. But the more important role is something else: a DSL is now a way to define a spec, within a specific context, that removes ambiguity and makes the generated implementation easy to check. To see why, imagine an LLM as a mapping <em>f</em> from the domain of natural language to another domain, say code. From an information-theoretic view, a few lines of text cannot carry enough information to pin down one exact program in a much larger space. Something else has to supply the missing bits.</p>
+
+    <p>So why does it work most of the time? Because the LLM shares the same context with us. It has seen the same conventions, idioms, and patterns we use, and it fills the gaps with them. When our intent matches that shared context, a short prompt is enough. The trouble starts when our intent diverges from it. Then the model fills the gaps with its own priors, and the result is plausible but not what we meant. This is exactly where a DSL helps: it makes the unusual, domain-specific context explicit instead of leaving it to guesswork.</p>
+
+    <p>A second, more theoretical example makes the point sharper. A spec is a high-level, domain-specific abstraction that defines the set of implementations we are willing to accept. I believe this is the underlying reason why everything works. Think of the unifying theories of programming. A spec can be refined step by step into an implementation, and each step makes the set of acceptable programs smaller. Sorting is a good example: sorting algorithms ⊇ bubble sort ⊇ bubble sort implemented in C ⊇ … At the top, any correct sorting algorithm is acceptable. Choosing bubble sort narrows the set. Writing it in C narrows it further, until we reach one concrete program.</p>
+
+    <p>Seen this way, a DSL is no longer mainly about productivity or efficiency. It is a spec, a set of rules the LLM must follow when it lowers or refines a program to the next level. The LLM is free to choose any implementation it likes, as long as the result stays inside the set the spec defines. The DSL is the contract, the LLM is the refiner, and verification checks that each step stays within bounds.</p>
+
+    <p>Maybe the next generation of DSLs is simply an interface, or a protocol, that does two things: it provides rules and context that humans can easily understand, and it enables a consistent check that the implementation matches the spec. The second property checks the implementation against the spec. But nothing can formally check the spec against what the user actually intends; only the user can, by reading it. That is why human readability is not a nice-to-have but the foundation: a spec is only as trustworthy as a person's ability to understand and confirm it.</p>
+
+    <p><em>When code is cheap, precision is what matters.</em> The DSL becomes the place where human intent is written down clearly enough that both people and machines can hold the result accountable.</p>
+
+    <p class="top-link"><a href="#">Back to top ↑</a></p>
+
+    <footer>
+      Last Updated: November 2026
+    </footer>
+  </main>
+</body>
+</html>
